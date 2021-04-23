@@ -1,0 +1,57 @@
+openapi: 3.1.0
+info:
+  title: "rsd-api"
+  summary: "Used to interact with the RSD Service"
+  contact:
+    name: "The Rusty Sys Dev"
+    email: "scott.mattan@rustysys.dev"
+  license:
+    name: "Apache 2.0"
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.0.1
+jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
+paths:
+  /quest/embark:
+    summary: "Start a quest"
+    post:
+      operationId: "startQuestRequest"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/startQuestRequest"
+            examples:
+              ex1:
+                value:
+                  questId: 1
+                  lanceId: fd319618-ece5-431c-a11a-a3f5082385e4
+      response:
+        '200':
+          description: "Successfully assigned lance to quest"
+        default:
+          description: "Some error occured"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorResponse"
+
+  /quest/finish:
+    summary: "Finish a quest"
+    post:
+      operationId: "finishQuestRequest"
+  /quest/delete:
+    summary: "Delete a quest"
+    delete:
+      operationId: "deleteQuestRequest"
+  /quest/detail:
+    summary: "Retrieve quest details"
+    get:
+      operationId: "detailQuestRequest"
+  /quest/modify:
+    summary: "Edit a quest"
+    post:
+      operationId: "modifyQuestRequest"
+  /quest/submit:
+    summary: "Register a new quest"
+    post:
+      operationId: "submitQuestRequest"

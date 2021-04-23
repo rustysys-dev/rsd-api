@@ -1,0 +1,3 @@
+- Finish OpenAPI paths and components objects.
+- Investigate using https://docs.rs/openapi/0.1.5/openapi/ or another crate for implementation of OpenAPI in rust.
+- Make an implementation.
